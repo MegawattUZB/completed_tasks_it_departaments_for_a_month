@@ -110,12 +110,12 @@
 			    const year = date.getFullYear();
 			    return `${day}.${month}.${year}`;
 			}
-
+			
 			const cardsContainer = document.getElementById('cardsContainer');
 			requests.forEach(request => {
 			    const card = document.createElement('div');
 			    card.classList.add('card');
-
+			
 			    card.innerHTML = `
 			        <div class="card-header">Инициатор: ${request['Инициатор']}</div>
 			        <div class="card-body">
@@ -123,12 +123,14 @@
 			            <div><span class="label">Ответственный:</span><span class="label-value">${request['Ответственный'] ? request['Ответственный'] : '-'}</span></div>
 			            <div><span class="label">Крайний срок:</span><span class="label-value">${formatDate(request['Крайний срок'])}</span></div>
 			            <div><span class="label">Тема обращения:</span><span class="label-value">${request['Тема обращения']}</span></div>
-			            <div><span class="label">Описание задачи / проблемы:</span><span class="label-value">${request['Описание задачи / проблемы']}</span></div>
+			            <div><span class="label">Описание задачи / проблемы:</span><pre class="label-value">${request['Описание задачи / проблемы']}</pre></div>
 			            <div><span class="label">Апдейты:</span><span class="label-value">${request['Апдейты'] ? request['Апдейты'] : ''}</span></div>
 			        </div>
 			    `;
-
+			
 			    cardsContainer.appendChild(card);
+			});
+
 			});
 		</script>
 	</body>
